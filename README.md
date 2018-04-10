@@ -1,7 +1,7 @@
-# hello-world
-## Test repository
+# Stash
+## Stash repository
 
-Test repository will be used to store notes and ideas as needed. May include ideas, frameworks, code snippets or cheat sheet ideas.
+Stash repository will be used to store notes and ideas as needed. Will include ideas, frameworks, code snippets or cheat sheet ideas.
 Will also be used to store references for resources I use on a regular basis.
 
 
