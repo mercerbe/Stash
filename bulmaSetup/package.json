@@ -1,0 +1,15 @@
+{
+  "name": "bulmasetup",
+  "version": "1.0.0",
+  "description": "Bulma Testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Ben Mercer",
+  "license": "ISC",
+  "dependencies": {
+    "bulma": "^0.7.1",
+    "bulma-start": "0.0.2"
+  }
+}

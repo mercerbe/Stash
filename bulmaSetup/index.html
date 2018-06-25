@@ -1,0 +1,51 @@
+<!-- npm installs: bulma bulma-start -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- bulma cdn -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.1/css/bulma.css">
+  <!-- font awesome 5 -->
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+
+  <title>Bulma Setup</title>
+  <!-- css grid -->
+  <style media="screen">
+    .grid {
+      display: grid;
+      grid-template-columns: [xl-start] 1fr [md-start] minmax(0,624) [md-end] 1fr [xl-end];
+    }
+    .grid * {
+      grid-column: md;
+    }
+    .grid-xl {
+      grid-column: xl;
+    }
+
+    .is-paddlingless-horizontal {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- .section -->
+<section class="section is-paddingless-horizontal">
+  <div class="container grid">
+    <nav class="breadcrumb" aria-label="breadcrumbs">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Signup</a></li>
+      <li><a href="#">Sign in</a></li>
+      <li class="is-active"><a href="#" aria-current="page">Breadcrumb</a></li>
+    </ul>
+  </nav>
+  </div>
+</section>
+
+</body>
+</html>
