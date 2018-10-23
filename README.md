@@ -21,7 +21,7 @@ My Stash repository is used to store notes and ideas.
 - [CSS3](./Notes/CSS3.md)
 - [DOM](./Notes/DOM.md)
 - [Node](./Notes/Node.md)
-- [Algorithms](./Notes/AlgorithmsAndDataStructures.md)
+- [Algorithms](./Notes/AlgorithmsAndDataStructures/AlgorithmsAndDataStructures.md)
 - [Git](./Notes/Git.md)
 - [Docker](./Notes/Docker.md)
 - [SQL](./Notes/SQL.md)
