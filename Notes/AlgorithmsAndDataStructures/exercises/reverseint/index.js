@@ -8,6 +8,29 @@
 //   reverseInt(-15) === -51
 //   reverseInt(-90) === -9
 
-function reverseInt(n) {}
+// .toString() turns ints into strings, then can use string based methods
+// string to number using parseInt()
+// function reverseInt(n) {
+//   let reversed = n
+//     .toString()
+//     .split("")
+//     .reverse()
+//     .join("");
+//   if (n < 0) {
+//     return parseInt(reversed) * -1;
+//   }
+//   return parseInt(reversed);
+// }
+
+//using Math.sign()
+function reverseInt(n) {
+  let reversed = n
+    .toString()
+    .split("")
+    .reverse()
+    .join("");
+
+  return parseInt(reversed) * Math.sign(n);
+}
 
 module.exports = reverseInt;
