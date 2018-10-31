@@ -18,13 +18,15 @@ My Stash repository is used to store notes and ideas.
 
 - [Javascript](./Notes/Javascript.md)
 - [HTML5](./Notes/HTML5.md)
-- [CSS3](./Notes/CSS3.md)
+- [CSS](./Notes/CSS.md)
 - [DOM](./Notes/DOM.md)
 - [Node](./Notes/Node.md)
 - [Algorithms](./Notes/AlgorithmsAndDataStructures/AlgorithmsAndDataStructures.md)
 - [Git](./Notes/Git.md)
 - [Docker](./Notes/Docker.md)
 - [SQL](./Notes/SQL.md)
+- [Gulp](./Notes/Gulp.md)
+- [Dev Tools](./Notes/ChromeDeveloperTools.md)
 
 ## Setups
 
