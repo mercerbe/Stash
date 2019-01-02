@@ -161,3 +161,13 @@ new Vue({
   }
 });
 ```
+
+## Section 3: Notes from SG Vue JS 
+
+### Templates: 
+ - describes structure and content of the app, aka the presentation layer (HTML)
+ - instances describe what happens when a user interacts with the app (Javascript)
+
+ ## Section 4: Notes from MS Vue JS
+ - 'this.foo' refers to anything inside the vue instance or component. Can be data, method, computed, ect.
+ - 
