@@ -169,5 +169,16 @@ new Vue({
  - instances describe what happens when a user interacts with the app (Javascript)
 
  ## Section 4: Notes from MS Vue JS
- - 'this.foo' refers to anything inside the vue instance or component. Can be data, method, computed, ect.
- - 
+ ### Basics
+  - 'this.foo' refers to anything inside the vue instance or component. Can be data, method, computed, ect.
+  - vue creates the templates, renders them, and outputs the new html through the instance
+  - data can be returned to the HTML or DOM with {{ foo }} where foo is the is the key in the data object.
+  - methods are functions that can output thier returned value to the HTML or dom with {{ }}, returned values can be stored in the data object
+    - example: a method that returns this.foo where foo is stored in data
+  - can't use {{}} in HTML elements, instead use v-bind with the argument, for a link it would be v-bind:href="link" where link is stored in the data object, e.g. link: 'www.google.com'
+  -using v-bind:(argument / html attribute) puts you in the vue instance, no need for {{}} 
+  - v-once is used when you want to use the inital value of a data property even if it changes or updates later
+  - vue escapes html elements, it's default is to render text, if you need to output a full html element, you can use v-html="foo" where foo is the data property / html you want rendered
+  -v-on: is used to bind to something on the DOM (like a button) whereas v-bind is to bind data to the DOM
+  - v-on: used for binding standard DOM events to the Vue instance.
+  - add methods to update v-on:, again, this.foo references any data in the vue instance
