@@ -182,3 +182,34 @@ new Vue({
   -v-on: is used to bind to something on the DOM (like a button) whereas v-bind is to bind data to the DOM
   - v-on: used for binding standard DOM events to the Vue instance.
   - add methods to update v-on:, again, this.foo references any data in the vue instance
+  - $event is stored in vue as a default for events, can be called from the template when passed as an arguement in a methods function 
+  ```
+  data: {
+    counter: 0,
+    x: 0,
+    y: 0
+  },
+  methods: {
+    increase: function(step, event) {
+      this.counter += step;
+    }
+    updateCoordinates: function(event) {
+      this.x = event.clientX;
+      this.y = event.clientY;
+    }
+  }
+  <template>
+    <div>
+      <button v-on:click="increase(3, $event)">click</button>
+      <p>{{counter}}</p>
+      <p v-on:mousemove="updateCoordinates">{{x<}}/{{y}}</p>
+    </div>
+  </template>
+  ```
+  -EVENT MODIFIERS
+  - event.stopPropogation() can be used to stop events from updating an HTML element
+  - event.mousemove.stop can be used to stop propigation 
+  - event.preventDefault() can be written as event.mousemove.prevent.
+  - KEY MODIFIERS
+  - .enter, .space, .tab 
+  - ex v-on:keyup.enter.space="alertMe" will only throw alert when enter or space key is hit.
