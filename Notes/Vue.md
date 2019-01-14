@@ -202,14 +202,105 @@ new Vue({
     <div>
       <button v-on:click="increase(3, $event)">click</button>
       <p>{{counter}}</p>
-      <p v-on:mousemove="updateCoordinates">{{x<}}/{{y}}</p>
+      <p v-on:mousemove="updateCoordinates">{{x}}/{{y}}</p>
     </div>
   </template>
   ```
-  -EVENT MODIFIERS
+### Event Modifiers
   - event.stopPropogation() can be used to stop events from updating an HTML element
   - event.mousemove.stop can be used to stop propigation 
   - event.preventDefault() can be written as event.mousemove.prevent.
-  - KEY MODIFIERS
+### Key Modifiers
   - .enter, .space, .tab 
   - ex v-on:keyup.enter.space="alertMe" will only throw alert when enter or space key is hit.
+
+  - js can be written directly in template, referring to previous example: 
+  ```
+  <button v-on:click="counter++">click</button>
+  ```
+  would increase the counter stored in data by 1
+  - two way binding: want to show data in template and if changed in template, update data property as well. v-model is used for two-way binding. example: 
+  ```
+  <template>
+    <div id="app">
+      <input type="text" v-model="name">
+      <p>{{name}}</p>
+    </div>
+  </template>
+  
+  new Vue({
+    el: '#app',
+    data: {
+      name: 'Ben'
+    }
+  })
+  ```
+### Reactivity
+  - if a lot of different places depend on a data property, you can write the logic in the template and update with a new method. 
+  - ex 
+  ```
+    <template>
+    <div id="app">
+      <button v-on:click="counter++"></button>
+      <button v-on:click="counter--"></button>
+      <p>{{counter}}</p>
+      <p>{{result}}</p>
+    </div>
+  </template>
+  
+  new Vue({
+    el: '#app',
+    data: {
+      counter: 0,
+    }, 
+    methods: {
+      result: function () {
+        return this.counter > 5 ? "greater" : "less"
+      }
+    }
+  })
+  ```
+  - we can introduce the computed property of the vue instance that will only concern itself with the specfic data property referenced. 
+  - the watch property can work to watch and only fire / react to specific changes. Best practice to use computed properites when you can ( more opitimized ). 
+  - watch can be run async 
+  ```
+    <template>
+    <div id="app">
+      <button v-on:click="counter++">Increase</button>
+      <button v-on:click="counter--">Decrease</button>
+      <button v-on:click="secondCounter++">Second Counter</button>
+      <p>{{counter}} | {{secondCounter}}</p>
+      <p>{{result}} | {{output}}</p>
+    </div>
+  </template>
+  
+  new Vue({
+    el: '#app',
+    data: {
+      counter: 0,
+      secondCounter: 0
+    }, 
+    computed: {
+      output: function() {
+        return this.counter > 5 ? "greater" : "less"
+      }
+    },
+    watch: {
+      counter: function(value) {
+        var vm = this;
+        setTimeout(function() {
+          vm.counter = 0;
+        }, 2000)
+      }
+    },
+    methods: {
+      result: function () {
+        return this.counter > 5 ? "greater" : "less"
+      }
+    }
+  })
+  ```
+  - this is not stored in callbacks like in our watch function
+  
+
+
