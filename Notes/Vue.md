@@ -301,6 +301,6 @@ new Vue({
   })
   ```
   - this is not stored in callbacks like in our watch function
-  
+  - : and @ can be used without the text before hand as a shortcut.
 
 
