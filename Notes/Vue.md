@@ -302,5 +302,106 @@ new Vue({
   ```
   - this is not stored in callbacks like in our watch function
   - : and @ can be used without the text before hand as a shortcut.
+### Dynamic styling 
+  - in data property, can add the property to attach css classes
+  ```
+  <div>
+    <div>
+    class="demo"
+    @click="attachRed = !attachRed"
+    :class="{red: attachRed}"
+    </div>
+  </div>
+
+  new Vue({
+    el: "#app",
+    data: {
+      attachRed: false
+    }
+  })
+  ```
+  - in :class pass an object where key is the css property (.red) and the value is the data property
+  - the object could be written in a computed property instead of written in the template
+    ```
+  <div>
+    <div>
+    class="demo"
+    @click="attachRed = !attachRed"
+    :class="divClass"
+    </div>
+  </div>
+
+  new Vue({
+    el: "#app",
+    data: {
+      attachRed: false
+    },
+    computed: {
+      divClass: function() {
+        return {
+          red: this.attachRed,
+          blue: !this.attachRed
+        }
+      }
+    }
+  })
+  ```
+  - v-model can also be used to attach a class from a data property 
+  ```
+  <div>
+    <div>
+    class="demo"
+    @click="attachRed = !attachRed"
+    :class="divClass"
+    </div>
+    <div :class="[color, {red: attachRed}]></div>
+    <input type="text" v-model="color">
+  </div>
+
+  new Vue({
+    el: "#app",
+    data: {
+      attachRed: false,
+      color: 'green' //refers to css class
+    },
+    computed: {
+      divClass: function() {
+        return {
+          red: this.attachRed,
+          blue: !this.attachRed
+        }
+      }
+    }
+  })
+  ```
+  - we are just outputting a class name from the input to the div, can also attach multiple classes in an array
+  - again, css class of red will be determined by the attachRed value, computed by the divClass computed function...
+  - we can also direcly interact with the style with :syle="{backgroundColor: color}"
+    - this could be the result of an input, async task, ect...
+  - vue will prefix styles to work in all browsers with :style
+
+### Conditional Rendering
+  - v-if="example" can be used attach or detach from the dom. 
+  - v-else="example" will connect to the last v-if used in the template 
+  - template doesn't get rendered in the dom so we can nest multiple elements inside the template 
+  - if you want to hide instead of detach, you can use v-show="example", adds style="display: none", v-if is better performance-wise
+  - v-for can be used to render lists with v-for="example in examples"
+  ```
+  <li v-for="(ingredient, i) in ingredients>{{ingredient}} | {{i}}</li>
+  ```
+  - to add the index, you can put () and the first arg is the element the second is the index
+  - templates again can be used ot render multiple elements 
+  - can also loop through arrays with objects or through objects 
+  - v-for can be nested to loop through the key/value pairs in objects 
+  ```
+  <li v-for="person in persons">
+    <div v-for="(value, key, index) in person"></div>
+  </li>
+  ```
+  - () can be used to loop through the key value pairs (properties) in the data object and the index. NOTE: the value must come first, then the key ("Brad", "name"), then the index.
+  - for numbers you can just run a simple v-for="number in 10" if number is not a data property, vue will loop through the integers in that range
+  - vue proxies the .push() property
+  - vue will update the position but not the element in that position. to be safe add :key="person" to add unique key in for loops
+
 
 
